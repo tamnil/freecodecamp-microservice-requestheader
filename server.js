@@ -25,9 +25,17 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/whoami',(req,res,next) => {
+  let headers = 
+  let ip = headers['forwarded-for'][0]
+  let language = headers['Accept-Language'];
+  let software = headers
   
-console.log(req.ip)
-  res.send({'ipaddress': req.toJSON})
+console.log(req.headers)
+  res.send({
+    'ipaddress': ip,
+    'language':'',
+  'software':'',
+  })
   
 })
 
